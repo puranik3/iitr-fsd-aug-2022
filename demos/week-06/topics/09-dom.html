@@ -13,5 +13,31 @@
         <p id="para-2" class="para">
             I am a para 2
         </p>
+
+        <script>
+            // Document Object Model (DOM)
+            // query methods
+            // querySelector selects 1 element - pass any CSS selector
+            console.dir( document.querySelector( 'p' ) );
+            console.dir( document.querySelector( '#para-1' ) );
+            console.dir( document.querySelector( '.para' ) );
+
+            // returns an array of elements matched
+            console.log( document.querySelectorAll( '.para' ) );
+            var paras = document.querySelectorAll( '.para' );
+            console.log( paras[0] );
+            console.log( paras[1] );
+
+            console.log( document.getElementById( 'para-1' ) );
+
+            setTimeout(function() {
+                var para1 = document.querySelector( '.para' );
+                para1.innerHTML = 'I am a paragraph whose content has been changed through JS';
+            }, 3000);
+
+            paras[1].addEventListener( 'click', function() {
+                console.log( 'HELLO' );
+            });
+        </script>
     </body>
 </html>

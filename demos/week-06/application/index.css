@@ -1,0 +1,15 @@
+.game {
+    text-align: center;
+}
+
+.game__grid {
+    display: grid;
+    grid-template-rows: repeat( 3, 120px ); /* height of the 3 rows */
+    grid-template-columns: repeat( 3, 120px ); /* width of 3 columns */
+    justify-content: center;
+}
+
+.game__cell {
+    border: 1px solid black;
+    line-height: 120px; /* centering vertically */
+}
