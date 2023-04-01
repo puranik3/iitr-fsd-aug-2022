@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p class="intro" id="para-1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, quis tempora ea hic alias nisi possimus. Similique, qui? Tempora aut debitis fugit modi molestiae quasi doloremque quia, soluta illo doloribus!
+        </p>
+        <p class="intro" id="para-2">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio dolorem perferendis in, voluptatem recusandae eligendi ad debitis ipsam eaque dolores optio explicabo quasi libero atque itaque officia earum dignissimos illum.
+        </p>
+        <p id="para-3">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos voluptatum quas, illum quod sint provident soluta accusantium cum doloribus repellendus rem laborum distinctio illo explicabo aut eligendi optio natus aliquam.
+        </p>
+
+        <script>
+            const introEls = document.getElementsByClassName( 'intro' );
+            console.log( introEls ); // like an array
+            console.log( introEls[0] ); // first para
+            console.log( introEls[1] ); // second para
+            console.log( introEls.length ); // 2
+
+            console.clear();
+
+            const para2El = document.getElementById( 'para-2' );
+            console.log( para2El );
+
+            console.clear();
+
+            // any CSS selector - first element that matches the CSS selector
+            const firstIntroEl = document.querySelector( '.intro' );
+            console.log( firstIntroEl );
+
+            const allIntroEls = document.querySelectorAll( '.intro' );
+            console.log( allIntroEls ); // like an array
+            console.log( allIntroEls[0] );
+            console.log( allIntroEls[1] );
+            console.log( allIntroEls.length );
+
+            const para2ElAgain = document.querySelector( '#para-2' );
+            console.log( para2ElAgain );
+        </script>
+    </body>
+</html>

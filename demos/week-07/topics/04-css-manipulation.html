@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .panel {
+                border: 1px solid navy;
+            }
+
+            .panel-question,
+            .panel-answer {
+                padding: 1em;
+            }
+
+            .panel-question {
+                background-color: navy;
+                color: ivory;
+                cursor: pointer;
+            }
+
+            .hide {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="panel">
+            <div class="panel-question">What is DOM for?</div>
+            <div class="panel-answer">DOM represents the document. It helps manipulate the document through JS.</div>
+        </div>
+
+        <script>
+            const panelQuestion = document.querySelector( '.panel-question' );
+            panelQuestion.addEventListener('click', function() {
+                const panelAnswer = document.querySelector( '.panel-answer' );
+                
+                // inline CSS - every DOM node has style property -> inline CSS property settings
+                // const currentDisplayValue = panelAnswer.style;
+                // panelAnswer.style.display = 'none';
+
+                // adding / removing class (preferred way - more effeicient for adding multiple CSS properties in one go)
+                // .add(), .contains(), .remove()
+                panelAnswer.classList.add( 'hide' );
+            });
+        </script>
+    </body>
+</html>

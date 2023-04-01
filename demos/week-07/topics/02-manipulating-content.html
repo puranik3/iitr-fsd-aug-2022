@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="para-1">
+            Some initial text 
+        </p>
+
+        <button>Change text</button>
+
+        <script>
+            const button = document.querySelector( 'button' );
+
+            // the browser will call the function WHEN the button is clicked
+            button.onclick = function() {
+                const p = document.querySelector( '#para-1' );
+                // p.innerText = 'New text <strong>set through JavaScript</strong>';
+                p.innerHTML = 'New text <strong>set through JavaScript</strong>';
+            };
+        </script>
+    </body>
+</html>

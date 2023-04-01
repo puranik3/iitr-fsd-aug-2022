@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--
+            on<event> - onclick, ondblclick, oninput, onsubmit
+        -->
+        <!-- the browser will request for the new page and load it -->
+        <a href="https://www.google.com" id="gl-link">Search on Google</a>
+        <input type="text" />
+        
+        <!-- no default action by browser -->
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+
+        <script>
+            document.querySelector( '#gl-link' ).addEventListener('click', function( event ) {
+                console.log( event );
+                // blocking function
+                const choice = confirm( 'Do you really want to go to Google?' );
+
+                if( choice === false ) {
+                    // Hey browser! Don't do what you do.
+                    event.preventDefault();
+                }
+            });
+
+            function buttonClickHandler( event ) {
+                console.log( 'button was clicked' );
+                console.log( event.target ); // tells which button was clicked
+                console.log( this ); // tells which button was clicked
+                console.log( event.type ); // which event
+            }
+
+            // even though not an array, forEach() can be used
+            document.querySelectorAll( 'button' ).forEach(function( button ) {
+                button.addEventListener( 'click', buttonClickHandler ); 
+                // button.addEventListener( 'mouseover', buttonClickHandler );
+            });
+
+            document.querySelector( 'input' ).addEventListener( 'input', function( event ) {
+                // value -> only for HTML input elements -> it gives the current value of the input
+                console.log( event.target.value );
+            })
+        </script>
+    </body>
+</html>
