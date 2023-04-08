@@ -46,9 +46,12 @@ class Snake {
     draw( ctx ) {
         const { cellSideLength } = this.game.configuration;
 
+        const x = this.head.x * cellSideLength;
+        const y = this.head.y * cellSideLength;
+
         // draw head
         ctx.fillStyle = '#111111';
-        ctx.fillRect( cellSideLength * this.head.x, cellSideLength * this.head.y, cellSideLength, cellSideLength );
+        ctx.fillRect( x, y, cellSideLength, cellSideLength );
 
         // tail
         ctx.fillStyle = '#333333';
@@ -56,8 +59,40 @@ class Snake {
             ctx.fillRect( cellSideLength * cell.x, cellSideLength * cell.y, cellSideLength, cellSideLength );
         });
 
-        // we will give it eyes if there is time
-        // @todo
+        const size = cellSideLength / 10;
+        const offset = cellSideLength / 3;
+
+        // eyes
+        switch (this.direction) {
+            case Directions.UP:
+                ctx.beginPath();
+                ctx.arc( x + offset, y + offset, size, 0, 2 * Math.PI );
+                ctx.arc( x + 2 * offset, y + offset, size, 0, 2 * Math.PI );
+                ctx.fillStyle = "white";
+                ctx.fill();
+                break;
+            case Directions.DOWN:
+                ctx.beginPath();
+                ctx.arc( x + offset, y + 2 * offset, size, 0, 2 * Math.PI );
+                ctx.arc( x + 2 * offset, y + 2 * offset, size, 0, 2 * Math.PI );
+                ctx.fillStyle = "white";
+                ctx.fill();
+                break;
+            case Directions.RIGHT:
+                ctx.beginPath();
+                ctx.arc( x + 2 * offset, y + offset, size, 0, 2 * Math.PI );
+                ctx.arc( x + 2 * offset, y + 2 * offset, size, 0, 2 * Math.PI );
+                ctx.fillStyle = "white";
+                ctx.fill();
+                break;
+            case Directions.LEFT:
+                ctx.beginPath();
+                ctx.arc( x + offset, y + offset, size, 0, 2 * Math.PI );
+                ctx.arc( x + offset, y + 2 * offset, size, 0, 2 * Math.PI );
+                ctx.fillStyle = "white";
+                ctx.fill();
+                break;
+        }
     }
 
     getNext() {

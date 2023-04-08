@@ -142,7 +142,7 @@ class Game {
     }
 
     gameOver() {
-        alert( 'Better luck next time' );
+        alert( `You scored ${this.score}. Better luck next time.` );
         this.running = false;
     }
 
