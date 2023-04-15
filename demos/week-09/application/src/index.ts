@@ -45,6 +45,8 @@ class Game {
         ball.style.top = ball_top;
         ball.style.left = ball_left;
         ball_coord = initial_ball_coord; // bounding rect information for initial position
+
+        message.textContent = 'Press Enter to play';
     }
 
     bindListeners() {
@@ -90,6 +92,16 @@ class Game {
         })
     }
 
+    isGameOver() {
+        if( this.scores.player1 === 21 ) {
+            alert( 'Player 1 wins the match' );
+        }
+        
+        if( this.scores.player2 === 21 ) {
+            alert( 'Player 2 wins the match' );
+        }
+    }
+
     moveBall( velocity : Velocity ) {
         // if ball hits the top / bottom then change the direction (sign of the y velocity coordinate)
         if(
@@ -124,6 +136,7 @@ class Game {
             this.scores.player1++;
             score_1.textContent = '' + this.scores.player1;
             this.reset();
+            this.isGameOver();
             return;
         }
         
@@ -132,6 +145,7 @@ class Game {
             this.scores.player2++;
             score_2.textContent = '' + this.scores.player2;
             this.reset();
+            this.isGameOver();
             return;
         }
 
