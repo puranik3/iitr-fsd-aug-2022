@@ -1,0 +1,5 @@
+- what is Next.js (vercel ) and how its different from react ?
+- Bundling and minification
+- along with webpack, please give understanding about babel too ?
+- npm
+- storybook?
