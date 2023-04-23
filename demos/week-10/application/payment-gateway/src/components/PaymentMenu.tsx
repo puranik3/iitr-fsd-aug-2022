@@ -41,7 +41,7 @@ const PaymentMenu = () => {
                         ( item, index ) => (
                             <button
                                 key={item}
-                                className="payment-option"
+                                className={"payment-option " + ( option === item ? 'payment-option-selected' : '')}
                                 onClick={() => setOption( item )}
                             >
                                 {item}
