@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Higher Order Component</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.6/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+        <script type="text/babel">
+            // Higher Order Component (HOC) - HOC is a function which generates and returns a component
+            // (A Complex) Design pattern for class components
+            // Problem: How to reduce code duplication for class components that share some common logic
+            // NOTE: Function components do not need such complex pattern to share functionality (if you find code shared between 2 components you can simply move that code to a common function and call it from both components)
+
+            // custom hooks
+            // const useCommonFeature = () => {
+            //     // common State
+            //     // const [ x, setX ] = React.useState()
+
+            //     // common function
+            //     // const foo = () => {}
+
+            //     // return {
+            //     //     x,
+            //     //     foo
+            //     // }
+            // }
+
+            // const A = () => {
+            //     const result = useCommonFeature();
+
+            //     // different code
+            // }
+            
+            // const B = () => {
+            //     const result = useCommonFeature();
+
+            //     // different code
+            // }
+
+            const withCounter = ( Component, initial ) => {
+                return class extends React.Component {
+                    state = {
+                        counter: initial
+                    };
+
+                    decrement = () => {
+                        this.setState({
+                            counter: this.state.counter - 1
+                        });
+                    };
+
+                    increment = () => {
+                        this.setState({
+                            counter: this.state.counter + 1
+                        });
+                    };
+
+                    render() {
+                        return (
+                            <Component
+                                counter={this.state.counter}
+                                decrement={this.decrement}
+                                increment={this.increment}
+                            />
+                        );
+                    }
+                }
+            };
+
+            class Counter extends React.Component {
+                render() {
+                    const { counter, decrement, increment } = this.props;
+                    
+                    return (
+                        <>
+                            <button className="btn btn-sm btn-primary" onClick={decrement}>-</button>
+                            <span>{counter}</span>
+                            <button className="btn btn-sm btn-primary" onClick={increment}>+</button>
+                        </>
+                    )
+                }
+            };
+
+            const CounterContainer = withCounter( Counter, 0 );
+
+            // Ajax -> Asynchronous JavaScript and XML (XMLHttpRequest)
+            const getWorkshops = async (_page) => {
+                const response = await axios.get(
+                    `http://localhost:8001/workshops`,
+                    {
+                        params: {
+                            _page, // _page: _page
+                        },
+                    }
+                );
+                return response.data;
+            };
+
+            class WorkshopsList extends React.Component {
+                state = {
+                    workshops: [],
+                    loading: true,
+                    error: null,
+                };
+
+                render() {
+                    const { workshops, loading, error } = this.state;
+                    const { counter : _page, decrement : previous, increment : next } = this.props;
+
+                    return (
+                        <div className="container my-5">
+                            <h1>List of workshops</h1>
+                            <hr />
+                            <div className="text-muted mb-2">You are viewing page {_page}</div>
+                            <div className="mb-3">
+                                <button className="btn btn-sm btn-primary me-2" onClick={previous}>Previous</button>
+                                <button className="btn btn-sm btn-primary" onClick={next}>Next</button>
+                            </div>
+
+                            {loading && (
+                                <div className="d-flex justify-content-center">
+                                    <div className="spinner-border" role="status">
+                                        <span className="visually-hidden">
+                                            Loading workshops...
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
+
+                            {!loading && error && (
+                                <div className="alert alert-danger" role="alert">
+                                    {error.message}
+                                </div>
+                            )}
+
+                            {!loading && !error && (
+                                <ol>
+                                    {workshops.map((w) => (
+                                        <li key={w.id}>{w.name}</li>
+                                    ))}
+                                </ol>
+                            )}
+                        </div>
+                    );
+                }
+
+                async fetchWorkshops() {
+                    try {
+                        const workshops = await getWorkshops(this.props.counter);
+
+                        this.setState({
+                            workshops, // workshops: workshops
+                            loading: false,
+                        });
+                    } catch (error) {
+                        this.setState({
+                            error, // error: error
+                            loading: false,
+                        });
+                    }
+                }
+
+                // called after the first render
+                async componentDidMount() {
+                    console.log("componentDidMount");
+                    this.fetchWorkshops();
+                }
+
+                // runs for every render except the first render
+                componentDidUpdate(oldProps, oldState) {
+                    const { workshops } = this.state;
+                    const { counter : _page } = this.props;
+
+                    // if _page has changed, only then fetch the workshops
+                    if( _page !== oldProps.counter ) {
+                        this.fetchWorkshops();
+                    }
+                }
+
+                componentWillUnmount() {
+                    console.log( 'componentWillUnmount' );
+                }
+            }
+
+            const ContainerWorkshopsList = withCounter( WorkshopsList, 1 );
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render( 
+                <>
+                    <CounterContainer />
+                    <ContainerWorkshopsList />
+                </>
+            );
+        </script>
+    </body>
+</html>

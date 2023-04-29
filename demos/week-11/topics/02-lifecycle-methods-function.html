@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>List of workshops</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.6/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+        <script type="text/babel">
+            // Ajax -> Asynchronous JavaScript and XML (XMLHttpRequest)
+            const getWorkshops = async (_page) => {
+                const response = await axios.get(
+                    `http://localhost:8001/workshops`,
+                    {
+                        params: {
+                            _page, // _page: _page
+                        },
+                    }
+                );
+                return response.data;
+            };
+
+            const WorkshopsList = () => {
+                const [ workshops, setWorkshops ] = React.useState( [] );
+                const [ _page, setPage ] = React.useState( 1 );
+                const [ loading, setLoading ] = React.useState( true );
+                const [ error, setError ] = React.useState( null );
+
+                const previous = () => {
+                    setPage( _page - 1 );
+                };
+                
+                const next = () => {
+                    setPage( _page + 1 );
+                };
+
+                const fetchWorkshops = async () => {
+                    try {
+                        const workshops = await getWorkshops(_page);
+
+                        setWorkshops( workshops );
+                        setLoading( false );
+                    } catch (error) {
+                        setError( error );
+                        setLoading( false );
+                    }
+                }
+
+                React.useEffect(
+                    // this function runs after render() executes
+                    // the function runs after the first render
+                    // the function runs after subsequent renders ONLY IF any of the variables mentioned in the dependency array changes
+                    () => {
+                        fetchWorkshops();
+
+                        return () => {
+                            console.log( 'componentDidUnmount equivalent' );
+                        }
+                    },
+                    [ _page ] // dependency array
+                );
+
+                return (
+                    <div className="container my-5">
+                        <h1>List of workshops</h1>
+                        <hr />
+                        <div className="text-muted mb-2">You are viewing page {_page}</div>
+                        <div className="mb-3">
+                            <button className="btn btn-sm btn-primary me-2" onClick={previous}>Previous</button>
+                            <button className="btn btn-sm btn-primary" onClick={next}>Next</button>
+                        </div>
+
+                        {loading && (
+                            <div className="d-flex justify-content-center">
+                                <div className="spinner-border" role="status">
+                                    <span className="visually-hidden">
+                                        Loading workshops...
+                                    </span>
+                                </div>
+                            </div>
+                        )}
+
+                        {!loading && error && (
+                            <div className="alert alert-danger" role="alert">
+                                {error.message}
+                            </div>
+                        )}
+
+                        {!loading && !error && (
+                            <ol>
+                                {workshops.map((w) => (
+                                    <li key={w.id}>{w.name}</li>
+                                ))}
+                            </ol>
+                        )}
+                    </div>
+                );
+            };
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<WorkshopsList />);
+
+            setTimeout(() => {
+                root.render( <div>That's all folks!</div> );
+            }, 10000);
+        </script>
+    </body>
+</html>

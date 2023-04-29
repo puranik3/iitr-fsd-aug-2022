@@ -1,0 +1,743 @@
+{
+  "workshops": [
+    {
+      "name": "Angular JS Bootcamp",
+      "id": 1,
+      "description": "<p><strong>AngularJS</strong> (also written as <strong>Angular.js</strong>) is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.</p><p>It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications. (This flexibility has led to the acronym MVW, which stands for \"model-view-whatever\" and may also encompass model–view–presenter and model–view–adapter.)</p>",
+      "startDate": "2019-01-01T04:00:00.000Z",
+      "endDate": "2019-01-03T08:00:00.000Z",
+      "time": "9:30 am - 1:30 pm",
+      "location": {
+        "address": "Tata Elxsi, Prestige Shantiniketan",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": false
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/2000px-AngularJS_logo.svg.png"
+    },
+    {
+      "name": "React JS Masterclass",
+      "id": 2,
+      "description": "<p><strong>React</strong> (also known as <strong>React.js</strong> or <strong>ReactJS</strong>) is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.</p><p>React can be used as a base in the development of single-page or mobile applications. Complex React applications usually require the use of additional libraries for state management, routing, and interaction with an API.</p>",
+      "startDate": "2019-01-14T04:30:00.000Z",
+      "endDate": "2019-01-16T12:30:00.000Z",
+      "time": "10:00 am - 6:00 pm",
+      "location": {
+        "address": "Tata Elxsi, IT Park",
+        "city": "Trivandrum",
+        "state": "Kerala"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": true
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png"
+    },
+    {
+      "name": "Crash course in MongoDB",
+      "id": 3,
+      "description": "<p><strong>MongoDB</strong> is a cross-platform document-oriented database program. It is issued under the Server Side Public License (SSPL) version 1, which was submitted for certification to the Open Source Initiative but later withdrawn in lieu of SSPL version 2. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata. MongoDB is developed by MongoDB Inc.</p><p>MongoDB supports field, range query, and regular expression searches. Queries can return specific fields of documents and also include user-defined JavaScript functions. Queries can also be configured to return a random sample of results of a given size.</p>",
+      "startDate": "2019-01-20T07:00:00.000Z",
+      "endDate": "2019-01-22T11:00:00.000Z",
+      "time": "12:30 pm - 4:30 pm",
+      "location": {
+        "address": "HCL, Electronic City Phase 1",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": false,
+        "online": true
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Mongo-db-logo.png"
+    },
+    {
+      "name": "Mastering Node JS and Express",
+      "description": "<p><strong>Node.js</strong> is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser. Typically, JavaScript is used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML and run client-side by a JavaScript engine in the user's web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting - running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a \"JavaScript everywhere\" paradigm, unifying web application development around a single programming language, rather than different languages for server side and client side scripts.</p><p>The Node.js distributed development project, governed by the Node.js Foundation, is facilitated by the Linux Foundation's Collaborative Projects program.</p>",
+      "startDate": "2019-10-20T07:00:00.000Z",
+      "endDate": "2019-20-22T07:00:00.000Z",
+      "time": "9:45 am - 5:45 pm",
+      "location": {
+        "address": "Harman Connected Services\nITPL, Whitefield",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png",
+      "createdDate": "Dec 31, 2018",
+      "id": 4
+    },
+    {
+      "name": "HTML and CSS",
+      "description": "HTML and CSS introduction",
+      "startDate": "2019-11-05T07:00:00.000Z",
+      "endDate": "2019-11-06T07:00:00.000Z",
+      "time": "9:00 am - 5:00 pm",
+      "location": {
+        "address": "Zenmonics",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": false
+      },
+      "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAz1BMVEXjTyb////vZSrr6+vpWijtYSnr8PHuWg7jQwv61czjRxbvYR7owrz++fb5y7/mnpDjSx7r5ePouLDhPgD2sZ3leGDiRhXiSRvlUybvYSHuVwDiQQb76OTr8/ThOgD6497xrqH98/D73NLyt6vwq53jUiroc1jqgWrmmovrinXpzsj31M30wbbsk4DnbVDjWTXnrqPkYD/q2NTxdkX1pYv3var2rpb0m3zzj2v5zb7mZkXxfVHwajDqZz3odVrovrXmi3jyimXxe075xbX0noHFi51LAAANlElEQVR4nN3d61rbOBAGYAI0MYaAwZAAIQnhFE5JOJRDabeFpfd/TWvT7kKlmfnksRQvzL99nm3wi030RRopM7W3tZHMvP/qLPxhmvnjv07aVV+eh0r7gvA4rvryPFS6Iwj3W1VfnodqNQXheVT15XmopCYIFzpVX56HmkjCflr15ZWvZCwJdz6AsH0iCZsf4J0mPpaEtQ8w4rcOROHk/ROjc1E4fv/Czpko/ACxLd0ThR8gthmhzRQevP8307QpCj9AbGvXRGH42Db/yXNt/vn6yaUs3AseauZnPZcpHMvC8LEtuHAoC5vvT2i8fnskC8PHttBCM7RZwsvQxNDCaB8Ij96b8JMpXAbCYejYFlpohjZLOAod23wL503hDhAGj23BhQMg3A8d20ILoxoQLr93YYKEwWObb6EZaR6QMHhsCy00Q5slHIT+cOFbaLy8FdosYe29/R0aL99agcL3lmlMoRnabOFDYKJnIQxttnD4voXpGRSOAgfT0MI+FK4Ejm2ehTC02cLQy8CBhXETCkPHtsDCiemxhWeBQ41nIQxtthAvA0flqlGmtpDwOxYOkDBaWypTZwslau/OJBoXZy4AU8Im+pCfXtXLlHUFhep2URbGVmizhbUJEHZO58pUOeEdELZ2HYQotkVL9eqET+",
+      "createdDate": "Jun 21, 2019",
+      "id": 5
+    },
+    {
+      "name": "TypeScript",
+      "description": "TypeScript language fundamentals",
+      "startDate": "2019-06-24",
+      "endDate": "2019-06-24",
+      "time": "9:00 am - 5:00 pm",
+      "location": {
+        "address": "Zenmonics",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": false
+      },
+      "imageUrl": "https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png",
+      "createdDate": "Jun 21, 2019",
+      "id": 6
+    },
+    {
+      "name": "Angular",
+      "id": 7,
+      "description": "<p>Google's <strong>Angular</strong> framework, is a much sought-after skill in the industry today. It is a single-page application (SPA) framework that includes most of the features required to build SPA applications. The Angular training gets you prepared for building enterprise-grade applications using the latest version of Angular.</p>",
+      "startDate": "2019-11-01T04:00:00.000Z",
+      "endDate": "2019-11-03T08:00:00.000Z",
+      "time": "9:30 am - 1:30 pm",
+      "location": {
+        "address": "Tata Elxsi, Prestige Shantiniketan",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": true
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/512px-Angular_full_color_logo.svg.png"
+    },
+    {
+      "name": "Migrating from Angular JS to Angular",
+      "id": 8,
+      "description": "<p>Google's <strong>Angular</strong> framework, is a much sought-after skill in the industry today. <strong>Angular JS</strong> is the first version of this framework. Angular (the name for the framework since version 2) is a ground-up rewrite of Angular JS.</p><p>Migration from Angular JS to Angular is not a straightforward task. This training prepares you for migration of existing Angular JS to the latest version of Angular.</p>",
+      "startDate": "2019-12-01T04:00:00.000Z",
+      "endDate": "2019-12-03T08:00:00.000Z",
+      "time": "9:30 am - 1:30 pm",
+      "location": {
+        "address": "Tata Elxsi, Prestige Shantiniketan",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": true
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/512px-Angular_full_color_logo.svg.png"
+    },
+    {
+      "name": "Bootstrap Bootcamp",
+      "id": 9,
+      "description": "<p><strong>Bootstrap</strong> is a front-end web framework that provides useful styles and components for creating responsive web pages quickly. Bootstrap v4 is the latest stable version of this framework and is covered in this bootcamp.</p>",
+      "startDate": "2019-12-12T04:00:00.000Z",
+      "endDate": "2019-12-14T08:00:00.000Z",
+      "time": "9:00 am - 5:00 pm",
+      "location": {
+        "address": "SAP Labs, Whitefield",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": false
+      },
+      "imageUrl": "https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg"
+    },
+    {
+      "name": "Apache Cordova",
+      "id": 10,
+      "description": "<p>Developing a mobile app requires extensive knowledge of native programming techniques for multiple platforms. <strong>Apache Cordova</strong> lets you use your existing skills in web development (HTML, CSS, and JavaScript) to build powerful mobile apps. Your apps also get the power of integration with native device features like the camera and file system.</p><p>In this bootcamp, you will learn to build apps from the Cordova CLI, how to make use of device features like the camera and accelerometer, and how to submit your apps to Google Play Store / Apple App Store.</p>",
+      "startDate": "2019-12-20T04:00:00.000Z",
+      "endDate": "2019-12-23T08:00:00.000Z",
+      "time": "9:00 am - 5:00 pm",
+      "location": {
+        "address": "Nissan Digital, IT Park",
+        "city": "Trivandrum",
+        "state": "Kerala"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": true
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Apache_Cordova_Logo.svg/494px-Apache_Cordova_Logo.svg.png"
+    },
+    {
+      "name": "Practical Git",
+      "id": 11,
+      "description": "<p><strong>Git</strong> is a distributed Version Control System (VCS) created by Linus Torvalds. It is by far the most popular VCS in use today.</p>",
+      "startDate": "2019-12-28T04:00:00.000Z",
+      "endDate": "2019-12-28T08:00:00.000Z",
+      "time": "9:00 am - 5:00 pm",
+      "location": {
+        "address": "SAP Labs, Whitefield",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": false
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/512px-Git-logo.svg.png"
+    },
+    {
+      "name": "JavaScript Fundamentals",
+      "id": 12,
+      "description": "<p><strong>JavaScript (JS)</strong> is the language for scripting web pages – to enable user interactions on a web page, communicate with the backend etc.</p><p>The latest versions of JavaScript like ES2015 (ES6) have introduced a plethora of great new features that have found adoption in modern frontend and backend frameworks. A good understanding of JS, especially ES2015 features, lays a strong foundation to get started with frameworks like React and Angular, as also Node.js and Express.</p>",
+      "startDate": "2020-01-08T04:00:00.000Z",
+      "endDate": "2020-01-10T08:00:00.000Z",
+      "time": "9:00 am - 5:00 pm",
+      "location": {
+        "address": "SAP Labs, Whitefield",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": true
+      },
+      "imageUrl": "https://camo.githubusercontent.com/055e8995558e293e52e92d7c93b9ec49a9ea6c78/68747470733a2f2f63646e2e7261776769742e636f6d2f7a656b652f6a6176617363726970742d79656c6c6f772f6d61737465722f6c6f676f2e737667"
+    },
+    {
+      "name": "jQuery",
+      "description": "jQuery is a JavaScript library",
+      "startDate": "2020-03-01T04:00:00.000Z",
+      "endDate": "2020-03-03T08:00:00.000Z",
+      "time": "9:30 am - 1:30 pm",
+      "location": {
+        "address": "Tata Elxsi, Prestige Shantiniketan",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "modes": {
+        "inPerson": true,
+        "online": false
+      },
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/JQuery_logo.svg/524px-JQuery_logo.svg.png",
+      "createdDate": "Feb 11, 2023",
+      "id": 13
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "workshopId": 1,
+      "sequenceId": 1,
+      "name": "Introduction to Angular JS",
+      "speaker": "John Doe",
+      "duration": 1,
+      "level": "Basic",
+      "abstract": "In this session you will learn about the basics of Angular JS",
+      "upvoteCount": 19
+    },
+    {
+      "id": 2,
+      "workshopId": 1,
+      "sequenceId": 2,
+      "name": "Scopes in Angular JS",
+      "speaker": "John Doe",
+      "duration": 0.5,
+      "level": "Basic",
+      "abstract": "This session will take a closer look at scopes.  Learn what they do, how they do it, and how to get them to do it for you.",
+      "upvoteCount": -2
+    },
+    {
+      "id": 3,
+      "workshopId": 1,
+      "sequenceId": 3,
+      "name": "Controllers",
+      "speaker": "Jane Doe",
+      "duration": 2,
+      "level": "Basic",
+      "abstract": "Controllers are the beginning of everything Angular does. They contain business logic used by your views.",
+      "upvoteCount": 1
+    },
+    {
+      "id": 4,
+      "workshopId": 1,
+      "sequenceId": 4,
+      "name": "Services",
+      "speaker": "Jane Doe",
+      "duration": 3,
+      "level": "Intermediate",
+      "abstract": "Services implement the business logic that is used across an application. A common use case is to make backend calls.",
+      "upvoteCount": 0
+    },
+    {
+      "id": 5,
+      "workshopId": 1,
+      "sequenceId": 5,
+      "name": "Directives",
+      "speaker": "Rob Smith",
+      "duration": 4,
+      "level": "Advanced",
+      "abstract": "Directives are ways to teach HTML new tricks. Directives are either custom HTML elements or attributes. They encapsulate markup and functionality, and help create reusable widgets that can be used in the app at many places.",
+      "upvoteCount": 0
+    },
+    {
+      "id": 6,
+      "workshopId": 2,
+      "sequenceId": 1,
+      "name": "Introduction to React JS",
+      "speaker": "Paul Smith",
+      "duration": 0.5,
+      "level": "Basic",
+      "abstract": "In this session you will learn about the basics of React JS",
+      "upvoteCount": 25
+    },
+    {
+      "id": 7,
+      "workshopId": 2,
+      "sequenceId": 2,
+      "name": "JSX",
+      "speaker": "Paul Smith",
+      "duration": 2,
+      "level": "Basic",
+      "abstract": "Learn how to use JSX to create view and bind data to it",
+      "upvoteCount": 12
+    },
+    {
+      "id": 8,
+      "workshopId": 2,
+      "sequenceId": 3,
+      "name": "Props and children",
+      "speaker": "Jane Doe",
+      "duration": 1,
+      "level": "Basic",
+      "abstract": "Use props and children to pass data",
+      "upvoteCount": 3
+    },
+    {
+      "id": 9,
+      "workshopId": 2,
+      "sequenceId": 4,
+      "name": "Components",
+      "speaker": "Jane Doe",
+      "duration": 3,
+      "level": "Basic",
+      "abstract": "Create custom stateful and stateless components. Compose components to create your application.",
+      "upvoteCount": 0
+    },
+    {
+      "id": 10,
+      "workshopId": 2,
+      "sequenceId": 5,
+      "name": "State and application lifecycle",
+      "speaker": "Rob Smith",
+      "duration": 2,
+      "level": "Intermediate",
+      "abstract": "Store application data in state and make your application respond to events",
+      "upvoteCount": -1
+    },
+    {
+      "id": 11,
+      "workshopId": 2,
+      "sequenceId": 6,
+      "name": "React router",
+      "speaker": "Rob Smith",
+      "duration": 2.5,
+      "level": "Advanced",
+      "abstract": "Add React router to build an SPA",
+      "upvoteCount": 0
+    },
+    {
+      "id": 12,
+      "workshopId": 2,
+      "sequenceId": 7,
+      "name": "State and application lifecycle",
+      "speaker": "Rob Smith",
+      "duration": 4,
+      "level": "Advanced",
+      "abstract": "Redux provides an architecture for state manipulation in your app. Add Redux to store the state of your app, and make your app respond to changes in state.",
+      "upvoteCount": 0
+    },
+    {
+      "id": 13,
+      "workshopId": 3,
+      "sequenceId": 1,
+      "name": "Introduction to NoSQL databases",
+      "speaker": "Ramcharan Gupta",
+      "duration": 0.5,
+      "level": "Basic",
+      "abstract": "What NoSQL is and how it is different from RDBMSes",
+      "upvoteCount": 2
+    },
+    {
+      "id": 14,
+      "workshopId": 3,
+      "sequenceId": 2,
+      "name": "Understanding MongoDB",
+      "speaker": "Ramcharan Gupta",
+      "duration": 2,
+      "level": "Basic",
+      "abstract": "MongoDB and its features shall be briefly introduced",
+      "upvoteCount": -2
+    },
+    {
+      "id": 15,
+      "workshopId": 3,
+      "sequenceId": 3,
+      "name": "Queries in MongoDB",
+      "speaker": "John Doe",
+      "duration": 2,
+      "level": "Basic",
+      "abstract": "CRUD operations in MongoDB",
+      "upvoteCount": 0
+    },
+    {
+      "id": 16,
+      "workshopId": 3,
+      "sequenceId": 4,
+      "name": "Designing Schemas for MongoDB",
+      "speaker": "Jane Doe",
+      "duration": 2,
+      "level": "Intermediate",
+      "abstract": "Schema design for MongoDB is quite different from that of traditional databases. Learn the art of designing Mongo DB database schemas for the application at hand.",
+      "upvoteCount": -1
+    },
+    {
+      "id": 17,
+      "workshopId": 3,
+      "sequenceId": 5,
+      "name": "Aggregation pipeline",
+      "speaker": "Rob Smith",
+      "duration": 3,
+      "level": "Advanced",
+      "abstract": "Learn how to use the aggregation pipelines to generate reports",
+      "upvoteCount": -1
+    },
+    {
+      "sequenceId": 18,
+      "name": "Mobx in Action",
+      "speaker": "Paul Smith",
+      "duration": 1.5,
+      "level": "Advanced",
+      "abstract": "In this session you will learn about the basics of usin Mobx",
+      "upvoteCount": 3,
+      "createdDate": "May 08, 2019",
+      "workshopId": "2",
+      "id": 18
+    },
+    {
+      "sequenceId": "101",
+      "speaker": "John Smith",
+      "duration": "3.5",
+      "level": "Intermediate",
+      "abstract": "Hello",
+      "upvoteCount": 0,
+      "createdDate": "May 09, 2019",
+      "workshopId": "3",
+      "id": 19
+    },
+    {
+      "sequenceId": 111,
+      "speaker": "Mark Smith",
+      "duration": 6.5,
+      "level": "Advanced",
+      "abstract": "Advanced advanced",
+      "upvoteCount": 0,
+      "createdDate": "May 09, 2019",
+      "workshopId": "3",
+      "id": 20
+    },
+    {
+      "upvoteCount": 0,
+      "sequenceId": null,
+      "duration": null,
+      "createdDate": "May 09, 2019",
+      "workshopId": "3",
+      "id": 21
+    },
+    {
+      "upvoteCount": 0,
+      "sequenceId": null,
+      "duration": null,
+      "createdDate": "May 09, 2019",
+      "workshopId": "3",
+      "id": 22
+    },
+    {
+      "upvoteCount": 0,
+      "sequenceId": null,
+      "duration": null,
+      "createdDate": "May 09, 2019",
+      "workshopId": "3",
+      "id": 23
+    },
+    {
+      "name": "Angular ngRx",
+      "abstract": "Angular",
+      "sequenceId": 123,
+      "speaker": "John Doe",
+      "duration": 3.5,
+      "level": "Intermediate",
+      "upvoteCount": 0,
+      "createdDate": "May 10, 2019",
+      "workshopId": "1",
+      "id": 24
+    },
+    {
+      "workshopId": 6,
+      "sequenceId": 1,
+      "name": "Primitive data types",
+      "speaker": "Jonathan Doe",
+      "duration": 1,
+      "level": "basic",
+      "abstract": "Number, boolean and string types along with the any type",
+      "upvoteCount": 0,
+      "createdDate": "Aug 16, 2019",
+      "id": 25
+    },
+    {
+      "workshopId": 6,
+      "sequenceId": 2,
+      "name": "Classes in TypeScript",
+      "speaker": "Jane Doe",
+      "duration": 1.5,
+      "level": "intermediate",
+      "abstract": "Creating classes, inheritance, extending interfaces etc.",
+      "upvoteCount": 0,
+      "createdDate": "Aug 16, 2019",
+      "id": 26
+    },
+    {
+      "id": 27,
+      "workshopId": 7,
+      "sequenceId": 1,
+      "name": "Introduction to Angular",
+      "speaker": "John Doe",
+      "duration": 1,
+      "level": "Basic",
+      "abstract": "In this session you will learn about the basics of Angular",
+      "upvoteCount": 8
+    },
+    {
+      "id": 28,
+      "workshopId": 7,
+      "sequenceId": 2,
+      "name": "Basics of RxJS",
+      "speaker": "John Doe",
+      "duration": 1.5,
+      "level": "Intermediate",
+      "abstract": "In this session you will learn about the basics of RxJS",
+      "upvoteCount": 15
+    },
+    {
+      "id": 29,
+      "workshopId": 7,
+      "sequenceId": 3,
+      "name": "Angular CLI",
+      "speaker": "Jane Doe",
+      "duration": 1.5,
+      "level": "Basic",
+      "abstract": "Various commands of the Angular CLI",
+      "upvoteCount": 5
+    },
+    {
+      "id": 30,
+      "workshopId": 8,
+      "sequenceId": 1,
+      "name": "Basic Angular Migration",
+      "speaker": "Jane Doe",
+      "duration": 2.5,
+      "level": "Basic",
+      "abstract": "Setting up the workflow and tools for migration",
+      "upvoteCount": 13
+    },
+    {
+      "id": 31,
+      "workshopId": 8,
+      "sequenceId": 2,
+      "name": "Migrating Components",
+      "speaker": "Jane Doe",
+      "duration": 3.5,
+      "level": "Intermediate",
+      "abstract": "Rewriting components, and having compnents in v1 and v2 work well with each other",
+      "upvoteCount": 22
+    },
+    {
+      "id": 32,
+      "workshopId": 8,
+      "sequenceId": 3,
+      "name": "Migrating Services",
+      "speaker": "John Doe",
+      "duration": 1.5,
+      "level": "Intermediate",
+      "abstract": "Rewriting services, factories and providers",
+      "upvoteCount": 15
+    },
+    {
+      "id": 33,
+      "workshopId": 9,
+      "sequenceId": 1,
+      "name": "Setting up Bootstrap",
+      "speaker": "Mark Smith",
+      "duration": 0.5,
+      "level": "Basic",
+      "abstract": "Including Bootstrap CSS and JS and Bootstrap features",
+      "upvoteCount": 5
+    },
+    {
+      "id": 34,
+      "workshopId": 9,
+      "sequenceId": 2,
+      "name": "Grid System",
+      "speaker": "Mark Smith",
+      "duration": 1.5,
+      "level": "Intermediate",
+      "abstract": "Using rows, columns, containers. Content choregraphy according to various screen sizes.",
+      "upvoteCount": 11
+    },
+    {
+      "id": 35,
+      "workshopId": 9,
+      "sequenceId": 3,
+      "name": "Forms",
+      "speaker": "John Doe",
+      "duration": 1.5,
+      "level": "Intermediate",
+      "abstract": "Form, validation states and error messages",
+      "upvoteCount": 25
+    },
+    {
+      "id": 36,
+      "workshopId": 10,
+      "sequenceId": 1,
+      "name": "Getting Started",
+      "speaker": "Tom Parker",
+      "duration": 1,
+      "level": "Basic",
+      "abstract": "Installing COrdova and setting up a basic project",
+      "upvoteCount": 2
+    },
+    {
+      "id": 37,
+      "workshopId": 10,
+      "sequenceId": 2,
+      "name": "Debugging Cordova Apps",
+      "speaker": "Tom Parker",
+      "duration": 1.5,
+      "level": "Intermediate",
+      "abstract": "Remote debugging on Chrome, Android, Safari and iOS",
+      "upvoteCount": 28
+    },
+    {
+      "id": 38,
+      "workshopId": 10,
+      "sequenceId": 3,
+      "name": "Plugins",
+      "speaker": "Tom Parker",
+      "duration": 8,
+      "level": "Advanced",
+      "abstract": "Cordova plugins and creating your own plugins",
+      "upvoteCount": 48
+    },
+    {
+      "id": 39,
+      "workshopId": 11,
+      "sequenceId": 1,
+      "name": "Introduction to VCSes and Git",
+      "speaker": "Tammy Parker",
+      "duration": 0.5,
+      "level": "Basic",
+      "abstract": "Introduction to concepts in VCSes. Also covers how Git is superior.",
+      "upvoteCount": 102
+    },
+    {
+      "id": 40,
+      "workshopId": 11,
+      "sequenceId": 2,
+      "name": "Getting setting",
+      "speaker": "Tammy Parker",
+      "duration": 0.5,
+      "level": "Basic",
+      "abstract": "Setting up a Git repository. Also covers cloning.",
+      "upvoteCount": 189
+    },
+    {
+      "id": 41,
+      "workshopId": 11,
+      "sequenceId": 3,
+      "name": "Committing",
+      "speaker": "Tammy Parker",
+      "duration": 1,
+      "level": "Basic",
+      "abstract": "Creating commits and pushing to GitHub",
+      "upvoteCount": 223
+    },
+    {
+      "id": 42,
+      "workshopId": 11,
+      "sequenceId": 4,
+      "name": "Branching and Merging",
+      "speaker": "Tammy Parker",
+      "duration": 2.5,
+      "level": "Intermediate",
+      "abstract": "Creating feature branches locally and on GitHub. Merging by resolving merge conflicts. Also covers rebasing.",
+      "upvoteCount": 345
+    },
+    {
+      "id": 43,
+      "workshopId": 12,
+      "sequenceId": 1,
+      "name": "Closures",
+      "speaker": "Burke Holland",
+      "duration": 1.5,
+      "level": "Intermediate",
+      "abstract": "What a closure is and how it can be used.",
+      "upvoteCount": 505
+    },
+    {
+      "id": 44,
+      "workshopId": 12,
+      "sequenceId": 2,
+      "name": "Prototypes",
+      "speaker": "Burke Holland",
+      "duration": 2.5,
+      "level": "Advanced",
+      "abstract": "Prototypes and how they can be used.",
+      "upvoteCount": 505
+    },
+    {
+      "workshopId": 13,
+      "sequenceId": 1,
+      "name": "Introduction to jQuery",
+      "speaker": "John Doe",
+      "duration": 1,
+      "level": "Basic",
+      "abstract": "In this session you will learn about the jQuery function and jQuery collection objects",
+      "upvoteCount": 0,
+      "createdDate": "Feb 11, 2023",
+      "id": 45
+    }
+  ],
+  "users": [
+    {
+      "userName": "puranik3",
+      "password": "password123",
+      "name": "Prashanth Puranik",
+      "emailAddress": "puranik.prashanth@gmail.com",
+      "bio": "I am a web developer and trainer"
+    }
+  ]
+}

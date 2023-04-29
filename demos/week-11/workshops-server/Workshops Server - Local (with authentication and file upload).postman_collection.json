@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "19fe565a-e6e4-4f6c-92ed-da08bc5769d4",
+		"name": "Workshops Server | Local (with authentication and file upload)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "715971"
+	},
+	"item": [
+		{
+			"name": "Login (admin | John Doe)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"Password123#\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login (general | Jane Doe)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jane.doe@example.com\",\n    \"password\": \"Password123#\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all workshops",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JANE_GENERAL_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/workshops",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"workshops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a workshop by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JANE_GENERAL_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/workshops/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"workshops",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get sessions for a workhop with given id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JANE_GENERAL_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/workshops/2/sessions",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"workshops",
+						"2",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a workshop",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JOHN_ADMIN_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"jQuery\",\n    \"description\": \"jQuery is a JavaScript library\",\n    \"startDate\": \"2020-03-01T04:00:00.000Z\",\n    \"endDate\": \"2020-03-03T08:00:00.000Z\",\n    \"time\": \"9:30 am - 1:30 pm\",\n    \"location\": {\n        \"address\": \"Tata Elxsi, Prestige Shantiniketan\",\n        \"city\": \"Bangalore\",\n        \"state\": \"Karnataka\"\n    },\n    \"modes\": {\n        \"inPerson\": true,\n        \"online\": false\n    },\n    \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/JQuery_logo.svg/524px-JQuery_logo.svg.png\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/workshops",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"workshops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JOHN_ADMIN_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"workshopId\": 13,\n    \"sequenceId\": 1,\n    \"name\": \"Introduction to jQuery\",\n    \"speaker\": \"John Doe\",\n    \"duration\": 1,\n    \"level\": \"Basic\",\n    \"abstract\": \"In this session you will learn about the jQuery function and jQuery collection objects\",\n    \"upvoteCount\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/sessions",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all sessions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JOHN_ADMIN_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/sessions",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

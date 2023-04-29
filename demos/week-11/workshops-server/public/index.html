@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+    width: 80%;
+	padding: 0 12px;
+    margin: 0 auto;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="workshops-server">Workshops Server</h1>
+<p>The workshops server serves details of (fictitious) technical workshops happening in various parts of India. Every workshop has a broad topic (eg. JavaScript), and a workshop has many sessions (each session covers a sub-topic, eg. Closures in JavaScript). A session maintains the number of upvotes, whcih can be modified by making an appropriate API call. This server allows you to view details of workshops, details of session of workshops, and also add a new workshop/session, edit and existing one and delete them. This includes</p>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>Every workshop has an id that is unique among all workshops.</li>
+<li>Every session has a unique id that is unique among all sessions.</li>
+<li>Every session has an workshopId property that is the id of the workshop to which it belongs.</li>
+<li>The sessions for a workshop are ordered using sequenceId (1, 2, 3 etc.). If the sequenceId of a session is less than the sequenceId of another session (for sessions belonging to the same workshop), the session with smaller id is scheduled to happen before the session with the larger id.</li>
+<li>Every session has an upvoteCount property that maintains the number of upvotes for the session.</li>
+</ul>
+<hr>
+<h2 id="accessing-the-server-online">Accessing the server online</h2>
+<p>You can <a href="https://workshops-server.herokuapp.com">access the server at the following URL</a>.</p>
+<p>To get started, you can <a href="https://workshops-server.herokuapp.com/workshops">view all workshops here</a>, and <a href="https://workshops-server.herokuapp.com/sessions">all sessions here</a>.</p>
+<hr>
+<h2 id="starting-the-server-locally">Starting the server locally</h2>
+<p>Assuming you have Node.js installed on your system,</p>
+<ol>
+<li>Navigate to the workshops-server folder in the command line/terminal. For example, if you are on a folder which has the workshops-server/ folder, then</li>
+</ol>
+<pre class="hljs"><code><div>$&gt; cd workshops-server
+</div></code></pre>
+<ol start="2">
+<li>Install required dependencies by running the following command</li>
+</ol>
+<pre class="hljs"><code><div>$&gt; npm install
+</div></code></pre>
+<ol start="3">
+<li>Start the server</li>
+</ol>
+<pre class="hljs"><code><div>$&gt; npm start
+</div></code></pre>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>$&gt; is the command prompt. DO NOT type it out!</li>
+<li>The server can also be started in authenticated mode. In this mode, an authentication token must first be obtained by POSTing to the https://workshops-server.herokuapp.com/login API, the following object.</li>
+</ul>
+<pre class="hljs"><code><div>{
+    &quot;email&quot;: &quot;john.doe@example.com&quot;,
+    &quot;password&quot;: &quot;Password123#&quot;
+}
+</div></code></pre>
+<p>No other credentials are supported by the server.</p>
+<hr>
+<h2 id="api-documentation">API Documentation</h2>
+<h2 id="workshops---view-all">Workshops - View all</h2>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops
+</div></code></pre>
+<h2 id="workshops---view-a-page-with-maximum-10-entries">Workshops - View a page (with maximum 10 entries)</h2>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops?_page=&lt;page_id&gt;
+</div></code></pre>
+<p>For example, to view the second page</p>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops?_page=2
+</div></code></pre>
+<h2 id="workshops---view-details-of-a-workshop">Workshops - View details of a workshop</h2>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops/&lt;workshop_id&gt;
+</div></code></pre>
+<p>For example, to view details of workshop with id = 2</p>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops/2
+</div></code></pre>
+<h2 id="workshops---view-sessions-for-a-workshop">Workshops - View sessions for a workshop</h2>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops/&lt;workshop_id&gt;/sessions
+</div></code></pre>
+<p>For example, to view sessions of workshop with id = 2</p>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops/2/sessions
+</div></code></pre>
+<h2 id="workshops---view-details-of-a-workshop-along-with-sessions-of-the-workshop">Workshops - View details of a workshop along with sessions of the workshop</h2>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops/&lt;workshop_id&gt;?_embed=sessions
+</div></code></pre>
+<p>For example, to view details of workshop with id = 2 along with its sessions</p>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/workshops/2?_embed=sessions
+</div></code></pre>
+<h2 id="sessions---view-all-sessions">Sessions - View all sessions</h2>
+<pre class="hljs"><code><div>GET https://workshops-server.herokuapp.com/sessions
+</div></code></pre>
+<h2 id="add-a-new-workshop">Add a new workshop</h2>
+<pre class="hljs"><code><div>POST https://workshops-server.herokuapp.com/workshops
+</div></code></pre>
+<p>The JSON data that must be sent is shown in below sample (modify the data as per your needs). DO NOT specify the id for the workshop. The response will have the same object with the automatically generated id for the workshop.</p>
+<pre class="hljs"><code><div>{
+    &quot;name&quot;: &quot;jQuery&quot;,
+    &quot;description&quot;: &quot;jQuery is a JavaScript library&quot;,
+    &quot;startDate&quot;: &quot;2020-03-01T04:00:00.000Z&quot;,
+    &quot;endDate&quot;: &quot;2020-03-03T08:00:00.000Z&quot;,
+    &quot;time&quot;: &quot;9:30 am - 1:30 pm&quot;,
+    &quot;location&quot;: {
+        &quot;address&quot;: &quot;Tata Elxsi, Prestige Shantiniketan&quot;,
+        &quot;city&quot;: &quot;Bangalore&quot;,
+        &quot;state&quot;: &quot;Karnataka&quot;
+    },
+    &quot;modes&quot;: {
+        &quot;inPerson&quot;: true,
+        &quot;online&quot;: false
+    },
+    &quot;imageUrl&quot;: &quot;https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/JQuery_logo.svg/524px-JQuery_logo.svg.png&quot;
+}
+</div></code></pre>
+<h2 id="add-a-new-session">Add a new session</h2>
+<pre class="hljs"><code><div>POST https://workshops-server.herokuapp.com/sessions
+</div></code></pre>
+<p>The JSON data that must be sent is shown in below sample (modify the data as per your needs). Specify the workshopId and set it to the id of the workshop for which this is a session. Also specify sequenceId. DO NOT specify the id for the session. The response will have the same object with the automatically generated id for the session.</p>
+<pre class="hljs"><code><div>{
+    &quot;workshopId&quot;: 13,
+    &quot;sequenceId&quot;: 1,
+    &quot;name&quot;: &quot;Introduction to jQuery&quot;,
+    &quot;speaker&quot;: &quot;John Doe&quot;,
+    &quot;duration&quot;: 1,
+    &quot;level&quot;: &quot;Basic&quot;,
+    &quot;abstract&quot;: &quot;In this session you will learn about the jQuery function and jQuery collection objects&quot;,
+    &quot;upvoteCount&quot;: 0
+}
+</div></code></pre>
+<h2 id="increment-number-of-votes">Upvote a session</h2>
+<pre class="hljs"><code><div>PUT https://workshops-server.herokuapp.com/sessions/&lt;session_id&gt;/upvote
+</div></code></pre>
+<p>For example, to upvote a session with session id = 45,</p>
+<pre class="hljs"><code><div>PUT https://workshops-server.herokuapp.com/sessions/45/upvote
+</div></code></pre>
+<h2 id="decrement-number-of-votes">Downvote a session</h2>
+<pre class="hljs"><code><div>PUT https://workshops-server.herokuapp.com/sessions/&lt;session_id&gt;/downvote
+</div></code></pre>
+<p>For example, to downvote a session with session id = 45,</p>
+<pre class="hljs"><code><div>PUT https://workshops-server.herokuapp.com/sessions/45/downvote
+</div></code></pre>
+
+<hr>
+<h2 id="additional-reference">Additional Reference</h2>
+<p>For more API documentation, please check the <a href="https://github.com/typicode/json-server">documentation of json-server</a> using which this server has been built</p>
+
+</body>
+</html>
