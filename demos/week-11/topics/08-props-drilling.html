@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Context API</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.6/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+        <script type="text/babel">
+            const documents = {
+                About: 'We are a consulting firm',
+                Contact: 'Contact use at info@example.com'
+            };
+
+            // Object.keys( documents )
+            // [ 'About, 'Contact' ]
+
+            const DocumentContext = React.createContext();
+
+            const App = ( { documents } ) => {
+                const [ document, setDocument ] = React.useState( "About" );
+
+                return (
+                    <div>
+                        <Menu />
+                        <Page
+                            setDocument={setDocument}
+                            documents={Object.keys( documents )}
+                            document={document}
+                            documentsObj={documents}
+                        />
+                    </div>
+                );
+            };
+
+            const Menu = () => {
+                return (
+                    <>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                    </>
+                );
+            };
+
+            const Page = ( { documents, setDocument, document, documentsObj } ) => {
+                return (
+                    <>
+                        <Sidebar documents={documents} setDocument={setDocument} />
+                        <DocumentArea document={document} documentsObj={documentsObj} />
+                    </>
+                );
+            };
+
+            const Sidebar = ( { documents, setDocument } ) => {
+                return (
+                    <ul>
+                        {
+                            documents.map(
+                                d => <li key={d}>{d}</li>
+                            )
+                        }
+                    </ul>
+                )
+            };
+
+            const DocumentArea = ( { documents, document, documentsObj } ) => {
+                return (
+                    <div>
+                        <Breadcrumbs />
+                        <MainContent document={document} documentsObj={documentsObj} />
+                    </div>
+                );
+            };
+
+            const Breadcrumbs = () => {
+                return <div>Breadcrumbs</div>
+            };
+
+            const MainContent = ( { documents, document, documentsObj } ) => {
+                return <div>{documentsObj[document]}</div>
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(
+                <App documents={documents} />
+            );
+        </script>
+    </body>
+</html>

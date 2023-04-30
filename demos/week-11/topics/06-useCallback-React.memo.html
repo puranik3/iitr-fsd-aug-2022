@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Performance optimization</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.6/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+        <script type="text/babel">
+            // React.memo() ensures that the PanelQuestion will re-render ONLY if at least 1 prop changes (either title changes or tg function changes)
+            const PanelQuestion = React.memo(( { title, tg } ) => { // tg is a callback prop
+                console.log( 'PanelQuestion re-renders' );
+
+                return (
+                    <div
+                        className="bg-primary text-white p-3"
+                        onClick={tg}
+                    >
+                        {title}
+                    </div>
+                );
+            });
+
+            const PanelAnswer = ( { children, show } ) => {
+                console.log( 'PanelAnswer re-renders' );
+
+                return show && (
+                    <div className="p-3">{children}</div>
+                );
+            };
+
+            // When Parent Panel render, by default all children (PanelQuestion, PanelAnswer) re-render - not too useful
+            const Panel = ( { title, children } ) => {
+                console.log( 'Panel re-renders' );
+
+                const [ show, setShow ] = React.useState( true );
+
+                // inner function of Panel function - it is a local function. This function gets recreated in memory every time Panel function runs, i.e. Panel re-renders.
+                // useCallback is a hook which prevents unnecessary re-creation of such functions (i.e. callback props)
+                const toggle = React.useCallback( () => setShow( show => !show ) , [] );
+
+                return (
+                    <div className="border border-primary">
+                        <PanelQuestion title={title} tg={toggle} />
+                        <PanelAnswer show={show}>{children}</PanelAnswer>
+                    </div>
+                );
+            };
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(
+                <div className="container my-5">
+                    <Panel title="What are hooks?">
+                        <p>They are a group of function which are available to function components only</p>
+                        <p>They provide features to function components, which were available earlier (before React 16.8) only for class components</p>
+                    </Panel>
+                </div>
+
+            );
+        </script>
+    </body>
+</html>

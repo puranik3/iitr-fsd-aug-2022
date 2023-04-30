@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ErrorBoundary</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.6/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+        <script type="text/babel">
+            class ErrorBoundary extends React.Component {
+                state = {
+                    error: null
+                };
+
+                // this executes when any error is thrown in any child
+                componentDidCatch( error ) {
+                    this.setState({
+                        error // error: error
+                    });
+                }
+
+                render() {
+                    const { children } = this.props;
+                    const { error } = this.state;
+
+                    return error ? error.message : children;
+                }
+            }
+
+            const Sample = ( { throwError, name } ) => {
+                if( throwError ) {
+                    throw new Error( 'Some error occured' );
+                }
+
+                return (
+                    <div>I am {name}</div>
+                );
+            };
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(
+                <>
+                    <ErrorBoundary>
+                        <Sample throwError={false} name="Mercury" />
+                    </ErrorBoundary>
+                    <ErrorBoundary>
+                        <Sample throwError={true} name="Venus" />
+                        <Sample throwError={false} name="Earth" />
+                    </ErrorBoundary>
+                </>
+            );
+        </script>
+    </body>
+</html>
