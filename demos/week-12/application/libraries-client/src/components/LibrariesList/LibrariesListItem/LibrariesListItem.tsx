@@ -10,10 +10,14 @@ type Props = {
 const LibrariesListItem = ({ library }: Props) => {
     return (
         <Card>
-            <Card.Img variant="top" src={`http://localhost:3001${library.imageUrl}`} />
+            <Card.Img
+                variant="top"
+                src={`http://localhost:3001${library.imageUrl}`}
+                style={{ height: '200px' }}
+            />
             <Card.Body>
                 <Card.Title>
-                    <div className="d-flex align-items-start justify-content-between text-sm">
+                    <div className="d-flex align-items-start justify-content-between text-sm" style={{ height: '76px' }}>
                         <div className="me-2">
                             <div>{library.name}</div>
                             <div>
